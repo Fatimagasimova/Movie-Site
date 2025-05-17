@@ -1,0 +1,9 @@
+h1 {
+  background: #772a9b;
+  background: linear-gradient(90deg, rgba(119, 42, 155, 1) 0%, rgba(227, 72, 41, 1) 56%, rgba(232, 177, 49, 1) 100%);
+  text-align: center;
+  color: white;
+  padding: 10px;
+  font-size: 50px;
+
+}
