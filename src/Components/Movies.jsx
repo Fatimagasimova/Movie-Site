@@ -11,8 +11,6 @@ const Movies = () => {
   const [favoriteLists, setFavoriteLists] = useState([]);
   const [listName, setListName] = useState("");
   const [favorites, setFavorites] = useState([]);
-
-  // Yeni state: siyahı yaradılıbsa true olacaq
   const [listCreated, setListCreated] = useState(false);
 
   const fetchMovies = (term) => {
@@ -47,7 +45,7 @@ const Movies = () => {
       setFavoriteLists([...favoriteLists, newList]);
       setListName("");
       setFavorites([]);
-      setListCreated(true); // artıq list yaradıldı
+      setListCreated(true);
     }
   };
 
@@ -64,12 +62,11 @@ const Movies = () => {
       />
 
       <div className="movies-page">
-        {/* Axtarış nəticələri */}
         <div className="movies-search-results">
           {movies.length ? (
             movies.map(movie => (
               <div className="movie-card" key={movie.imdbID}>
-                <img src={movie.Poster} alt={movie.Title} />
+                <img src={movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/150"} alt={movie.Title} />
                 <div className="movie-card-right">
                   <p className="movie-title">{movie.Title}</p>
                   <p className="movie-year">Year: {movie.Year}</p>
@@ -88,7 +85,6 @@ const Movies = () => {
           )}
         </div>
 
-        {/* Favoritlər paneli */}
         <div className="movies-favorites-panel">
           <div className="favorites-list">
             <ol>
@@ -108,13 +104,13 @@ const Movies = () => {
               placeholder="Enter list name"
               value={listName}
               onChange={(e) => setListName(e.target.value)}
-              disabled={listCreated} // deaktiv olunsun list yaradıldıqdan sonra
+              disabled={listCreated}
             />
 
             <button
               className="favorites-add-button"
               onClick={handleAddList}
-              disabled={listCreated} // deaktiv olunsun basılandan sonra
+              disabled={listCreated}
             >
               Add Favorite
             </button>
@@ -122,7 +118,7 @@ const Movies = () => {
             <button
               className="favorites-view-button"
               onClick={() => navigate('/favorites', { state: { favoriteLists } })}
-              disabled={!listCreated} // yalnız list yaradılıbsa aktiv olsun
+              disabled={!listCreated}
             >
               Favorite List
             </button>

@@ -1,13 +1,13 @@
 import React from 'react';
 import "./Search.css";
 
-
 const Search = ({ searchTerm, setSearchTerm, handleSearch }) => {
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSearch();
     }
   };
+
   return (
     <div className='search'>
       <input

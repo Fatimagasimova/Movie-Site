@@ -2,7 +2,7 @@ import React from 'react';
 import './FavoriteList.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const FavoriteListsPage = () => {
+const FavoriteList = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const favoriteLists = location.state?.favoriteLists || [];
@@ -39,4 +39,4 @@ const FavoriteListsPage = () => {
   );
 };
 
-export default FavoriteListsPage;
+export default FavoriteList;
