@@ -9,8 +9,6 @@ const FavoriteList = () => {
 
   return (
     <div className="favorite-page">
-      <h2 className="favorite-title">Your Favorite Lists</h2>
-
       {favoriteLists.length === 0 && (
         <p className="no-lists-message">No favorite lists saved.</p>
       )}

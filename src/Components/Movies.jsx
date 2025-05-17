@@ -44,7 +44,7 @@ const Movies = () => {
       };
       setFavoriteLists([...favoriteLists, newList]);
       setListName("");
-      setFavorites([]);
+      // setFavorites([]);
       setListCreated(true);
     }
   };
@@ -91,7 +91,14 @@ const Movies = () => {
               {favorites.map(fav => (
                 <div className="favorites-item" key={fav.imdbID}>
                   <li>{fav.Title} ({fav.Year})</li>
-                  <button className='x-button' onClick={() => removeFromFavorites(fav.imdbID)}>x</button>
+                  {!listCreated && (
+                    <button
+                      className='x-button'
+                      onClick={() => removeFromFavorites(fav.imdbID)}
+                    >
+                      x
+                    </button>
+                  )}
                 </div>
               ))}
             </ol>
@@ -110,7 +117,7 @@ const Movies = () => {
             <button
               className="favorites-add-button"
               onClick={handleAddList}
-              disabled={listCreated}
+              disabled={listCreated || listName.trim() === ""}
             >
               Add Favorite
             </button>
