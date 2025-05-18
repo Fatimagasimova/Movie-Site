@@ -53,6 +53,35 @@ const Movies = () => {
     fetchMovies(searchTerm);
   }, [searchTerm]);
 
+  useEffect(() => {
+    const storedLists = localStorage.getItem('favoriteLists');
+    if (storedLists) {
+      setFavoriteLists(JSON.parse(storedLists));
+      setListCreated(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (favorites.length === 0) {
+      setListCreated(false);
+    }
+  }, [favorites]);
+
+  useEffect(() => {
+    const resetFavorites = sessionStorage.getItem('resetFavorites');
+    if (resetFavorites === 'true') {
+      setFavorites([]);
+      sessionStorage.setItem('resetFavorites', 'false');
+    }
+  }, []);
+
+  useEffect(() => {
+    if (favoriteLists.length > 0) {
+      localStorage.setItem('favoriteLists', JSON.stringify(favoriteLists));
+    }
+  }, [favoriteLists]);
+
+
   return (
     <>
       <Search
