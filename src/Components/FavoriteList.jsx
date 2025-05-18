@@ -18,12 +18,12 @@ const handleDeleteList = (index) => {
 
   return (
     <div className="favorite-page">
+      <h2 className='favorite-title'>Favorite Lists</h2>
       {favoriteLists.length === 0 && (
         <p className="no-lists-message">No favorite lists saved.</p>
       )}
       {favoriteLists.map((list, idx) => (
         <div key={idx} className="favorite-list-container">
-          <h2 className='favorite-title'>Favorite List</h2>
               <div className="list-header">
           <h3 className="list-name">"{list.name}" list</h3>
           <button className="delete-button" onClick={() => handleDeleteList(idx)}>Delete</button>

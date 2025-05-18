@@ -8,9 +8,10 @@
 }
 
 .no-lists-message {
-  margin: 20px;
+  margin: 30px;
   font-size: 18px;
   color: gray;
+  font-style: italic;
 }
 
 .favorite-list-container {
@@ -22,9 +23,7 @@
 .favorite-title {
   text-align: center;
   font-size: 44px;
-  color: #f09627;
-  font-style: italic;
-  text-decoration: rgb(237, 176, 98) underline;
+  color: #f04527;
 }
 
 .list-name {
