@@ -57,15 +57,26 @@
 
 .imdb-button {
   background-color: blueviolet;
-  color: white;
-  width: 60px;
+  color: #ffffff;
+  max-width: 60px;
   height: 30px;
   border: none;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 14px;
   margin-left: 20px;
-  padding: 5px;
+  padding: 0 10px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
+
+.imdb-button:hover {
+  background-color: #8a2be2; 
+}
+
 
 .list-header {
   display: flex;

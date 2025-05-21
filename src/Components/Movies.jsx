@@ -17,13 +17,19 @@ const Movies = () => {
     fetch(`https://www.omdbapi.com/?s=${term.trim()}&apikey=bafbcd87`)
       .then(res => res.json())
       .then(data => {
-        if (data.Search) setMovies(data.Search.slice(0, 10));
-        else setMovies([]);
+        if (data.Search) {
+          setMovies(data.Search.slice(0, 10));
+        }
+        else {
+          setMovies([]);
+        }
       });
   };
 
   const handleSearch = () => {
-    if (inputValue.trim() !== "") setSearchTerm(inputValue);
+    if (inputValue.trim() !== "") {
+      setSearchTerm(inputValue);
+    }
   };
 
   const addToFavorites = (movie) => {
@@ -44,7 +50,6 @@ const Movies = () => {
       };
       setFavoriteLists([...favoriteLists, newList]);
       setListName("");
-      // setFavorites([]);
       setListCreated(true);
     }
   };
@@ -137,7 +142,7 @@ const Movies = () => {
             <input
               type="text"
               className="favorites-input"
-              placeholder="Enter list name"
+              placeholder="Enter list name..."
               value={listName}
               onChange={(e) => setListName(e.target.value)}
               disabled={listCreated}
